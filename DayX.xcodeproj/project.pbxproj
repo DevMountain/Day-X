@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684B11DD1AD9B94700049BCF /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B11DC1AD9B94700049BCF /* EntryController.m */; };
+		6856B5571AD9B8D800D7AAA1 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 6856B5561AD9B8D800D7AAA1 /* Entry.m */; };
 		68FFDFDC1AD8144B009F5D0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FFDFDB1AD8144B009F5D0A /* main.m */; };
 		68FFDFDF1AD8144B009F5D0A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FFDFDE1AD8144B009F5D0A /* AppDelegate.m */; };
 		68FFDFE21AD8144B009F5D0A /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FFDFE11AD8144B009F5D0A /* ListViewController.m */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		684B11DB1AD9B94700049BCF /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
+		684B11DC1AD9B94700049BCF /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
+		6856B5551AD9B8D800D7AAA1 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		6856B5561AD9B8D800D7AAA1 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		68FFDFD61AD8144B009F5D0A /* DayX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FFDFDA1AD8144B009F5D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68FFDFDB1AD8144B009F5D0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +102,10 @@
 				68FFDFFF1AD81603009F5D0A /* DetailViewController.h */,
 				68FFE0001AD81603009F5D0A /* DetailViewController.m */,
 				68FFDFE31AD8144B009F5D0A /* Main.storyboard */,
+				6856B5551AD9B8D800D7AAA1 /* Entry.h */,
+				6856B5561AD9B8D800D7AAA1 /* Entry.m */,
+				684B11DB1AD9B94700049BCF /* EntryController.h */,
+				684B11DC1AD9B94700049BCF /* EntryController.m */,
 				68FFDFE61AD8144B009F5D0A /* Images.xcassets */,
 				68FFDFE81AD8144B009F5D0A /* LaunchScreen.xib */,
 				68FFDFD91AD8144B009F5D0A /* Supporting Files */,
@@ -229,9 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6856B5571AD9B8D800D7AAA1 /* Entry.m in Sources */,
 				68FFE0041AD817F8009F5D0A /* ListTableViewDataSource.m in Sources */,
 				68FFDFE21AD8144B009F5D0A /* ListViewController.m in Sources */,
 				68FFDFDF1AD8144B009F5D0A /* AppDelegate.m in Sources */,
+				684B11DD1AD9B94700049BCF /* EntryController.m in Sources */,
 				68FFDFDC1AD8144B009F5D0A /* main.m in Sources */,
 				68FFE0011AD81603009F5D0A /* DetailViewController.m in Sources */,
 			);

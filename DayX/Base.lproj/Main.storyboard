@@ -51,6 +51,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="xtw-kp-WiU" id="2jJ-hs-PWS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <customObject id="oTb-Os-QSb" customClass="ListTableViewDataSource"/>
@@ -77,14 +80,14 @@
                                     <outlet property="delegate" destination="OGp-Ah-lx3" id="t3c-ga-j4L"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QL8-7b-X6C">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QL8-7b-X6C">
                                 <rect key="frame" x="16" y="144" width="568" height="361"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QED-5v-pZG">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QED-5v-pZG">
                                 <rect key="frame" x="282" y="539" width="37" height="30"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,6 +110,17 @@
                             <constraint firstItem="QL8-7b-X6C" firstAttribute="trailing" secondItem="nXi-Bw-6sq" secondAttribute="trailingMargin" id="xGP-dh-eVj"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Tsj-hf-YOC"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="2lR-ww-V2A">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GM9-rw-Ss5">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="OGp-Ah-lx3" id="IIf-45-vxW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bodyTextView" destination="QL8-7b-X6C" id="EbI-lj-4Fr"/>
                         <outlet property="titleTextField" destination="LGq-HM-GgN" id="x5N-mm-SKd"/>

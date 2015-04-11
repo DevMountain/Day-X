@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "EntryController.h"
 
 @interface DetailViewController () <UITextFieldDelegate>
 
@@ -20,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self updateWithEntry:self.entry];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +33,22 @@
 - (IBAction)clearButtonTapped:(id)sender {
     self.titleTextField.text = @"";
     self.bodyTextView.text = @"";
+}
+
+- (IBAction)saveButtonTapped:(id)sender {
+    
+    if (self.entry) {
+        self.entry.title = self.titleTextField.text;
+        self.entry.bodyText = self.bodyTextView.text;
+        self.entry.timestamp = [NSDate date];
+    } else {
+        self.entry = [[EntryController sharedInstance] createEntryWithTitle:self.titleTextField.text bodyText:self.bodyTextView.text];
+    }
+}
+
+- (void)updateWithEntry:(Entry *)entry {
+    self.titleTextField.text = entry.title;
+    self.bodyTextView.text = entry.bodyText;
 }
 
 #pragma mark - TextFieldDelegate Methods
