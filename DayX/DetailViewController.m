@@ -41,6 +41,8 @@
         self.entry.title = self.titleTextField.text;
         self.entry.bodyText = self.bodyTextView.text;
         self.entry.timestamp = [NSDate date];
+        
+        [[EntryController sharedInstance] save];
     } else {
         self.entry = [[EntryController sharedInstance] createEntryWithTitle:self.titleTextField.text bodyText:self.bodyTextView.text];
     }

@@ -8,6 +8,9 @@
 
 #import "EntryController.h"
 
+static NSString * const AllEntriesKey = @"allEntries";
+
+
 @interface EntryController ()
 
 #pragma mark - Read
@@ -24,7 +27,7 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [EntryController new];
         
-        sharedInstance.entries = [NSArray new];
+        [sharedInstance loadFromPersistentStorage];
     });
     return sharedInstance;
 }
@@ -51,6 +54,37 @@
     [mutableEntries addObject:entry];
     
     self.entries = mutableEntries;
+    [self saveToPersistentStorage];
+}
+
+#pragma mark - Read
+
+- (void)saveToPersistentStorage {
+    NSMutableArray *entryDictionaries = [NSMutableArray new];
+    for (Entry *entry in self.entries) {
+        [entryDictionaries addObject:[entry dictionaryRepresentation]];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:entryDictionaries forKey:AllEntriesKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)loadFromPersistentStorage {
+    NSArray *entryDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:AllEntriesKey];
+    self.entries = entryDictionaries;
+    
+    NSMutableArray *entries = [NSMutableArray new];
+    for (NSDictionary *entry in entryDictionaries) {
+        [entries addObject:[[Entry alloc] initWithDictionary:entry]];
+    }
+    
+    self.entries = entries;
+}
+
+#pragma mark - Update
+
+- (void)save {
+    [self saveToPersistentStorage];
 }
 
 #pragma mark - Delete
@@ -64,6 +98,7 @@
     [mutableEntries removeObject:entry];
     
     self.entries = mutableEntries;
+    [self saveToPersistentStorage];
 }
 
 @end
