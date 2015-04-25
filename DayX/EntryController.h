@@ -17,7 +17,6 @@
 
 - (Entry *)createEntryWithTitle:(NSString *)title bodyText:(NSString *)bodyText;
 
-- (void)addEntry:(Entry *)entry;
 - (void)removeEntry:(Entry *)entry;
 
 - (void)save;

@@ -196,3 +196,49 @@ We add this extra method to provide a better public name than 'saveToPersistentS
 - In the sharedInstance method, replace the code that sets the ```sharedInstance.entries``` to an empty array with the ```loadFromPersistentStorage``` method
 
 Run the app. You should now be able to create new entries, edit existing entries, and load saved entries when you relaunch the app.
+
+## Lesson 16 - Core Data
+
+In this section we will replace NSUserDefaults for data persistence with Core Data. Because of the way we have written the app, most of the changes we make will be in the ```EntryController``` class. We will add the Core Data framework to the project, add a Core Data Model file, replace our Entry NSObject subclass with a NSManagedObject subclass, and update our ```EntryController``` to save to and load from Core Data's persistent store.
+
+#### Core Data Setup
+
+- Add the Core Data framework as a linked library in your project. Click on your DayX target, click the + button for Linked Frameworks and Libraries, and add CoreData.framework
+- Add a new Model file. File, New, File, Core Data, Data Model. You can name it what you'd like, but remember what you name it because we'll need that information later. The solution uses 'Model'.
+- Create your ```Entry``` entity in the Model with attributes:
+    * ```title``` (NSString)
+    * ```bodyText``` (NSString)
+    * ```timestamp``` (NSDate)
+- Delete your current Entry.h and Entry.m files, we will replace them with the NSManagedObject subclass
+- Create your NSManagedObject subclass by clicking Editor, Create NSManagedObject Subclass and navigating through the menus to create the new Entry.h and Entry.m files
+
+- Import the ```Stack``` class from the solution or from [gist](https://gist.github.com/jkhowland/6ba5accdb4b8d5d98af0)
+
+#### Update the EntryController
+
+- Remove the implementation code from the following methods:
+    * ```saveToPersistentStore:```
+    * ```removeEntry:```
+
+- Remove the following properties and methods, and remove references to them:
+    * ```loadFromPersistentStorage```
+    * ```entries``` (private only, leave the public)
+
+##### Adding Entry Objects to Core Data
+
+- Reimplement ```createEntryWithTitle: bodyText:``` method: it needs to use the ```insertNewObjectForEntityForName:``` on ```NSEntityDescription``` instead of [Entry new]
+- We no longer need to use the ```addEntry``` method. Instead we want to save directly to the persistent store. Use the ```saveToPersistentStorage``` method to save our new entry.
+
+- Reimplement ```saveToPersistentStorage```: it needs to save the ```managedObjectContext``` on the ```Stack``` class.
+
+- Reimplement ```removeEntry:```: it needs to delete the entry object from the entry's Managed Object Context.
+
+#### Pulling Entry Objects from Core Data
+
+- Implement ```entries``` as a custom getter method for the public, read-only entries property: it needs to instantiate and execute a fetch request for ```Entry``` entities from the ```managedObjectContext``` on the ```Stack``` class.
+
+Run the app. Your entries saved to NSUserDefaults should no longer appear. When you create an Entry, it should save to Core Data and display in your list of entries. When you reload your app, your entries should display in the list.
+
+#### The Beauty of MVC
+
+Take note that we were able to update our entire model by updating the ```EntryController``` class. We were able to do this because of well-defined, specific roles that we assigned to each class.
