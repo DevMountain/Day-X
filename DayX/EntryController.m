@@ -71,7 +71,6 @@ static NSString * const AllEntriesKey = @"allEntries";
 
 - (void)loadFromPersistentStorage {
     NSArray *entryDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:AllEntriesKey];
-    self.entries = entryDictionaries;
     
     NSMutableArray *entries = [NSMutableArray new];
     for (NSDictionary *entry in entryDictionaries) {
