@@ -187,7 +187,7 @@ We add this extra method to provide a better public name than 'saveToPersistentS
 
 - Add a new public method to the EntryController named ```save```
 - Implement the ```save``` method: it needs to call the ```saveToPersistentStorage```, 
-- Add the ```save``` method to the DetailViewController ```saveButtonTapped:``` IBAction method, but only when we are updating an Entry
+- Add the ```save``` method to the DetailViewController ```saveButtonTapped:``` IBAction method
 
 #### Update the EntryController class to add functionality to load all Entry objects from NSUserDefaults
 
