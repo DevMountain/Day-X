@@ -12,6 +12,6 @@
 
 + (SyncController *)sharedInstance;
 
-- (void)syncEntriesWithCloudKit;
+- (void)syncEntries;
 
 @end

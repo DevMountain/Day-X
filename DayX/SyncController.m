@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, EntryCompare) {
     
 }
 
-- (void)syncEntriesWithCloudKit {
+- (void)syncEntries {
     
     // In order to retrieve all records
     NSPredicate *truePredicate = [NSPredicate predicateWithValue:YES];
@@ -107,6 +107,8 @@ typedef NS_ENUM(NSInteger, EntryCompare) {
 }
 
 - (EntryCompare)compare:(CKRecord *)record entry:(Entry *)entry {
+
+    // This simply checks the record date vs. the entry timestamp.
     
     NSDate *recordDate = record[EntryTimeStampKey];
     if ([recordDate compare:entry.timestamp] == NSOrderedSame) {

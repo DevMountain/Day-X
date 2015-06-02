@@ -9,12 +9,16 @@
 #import "DXAppDelegate.h"
 #import "DXListViewController.h"
 
+#import "SyncController.h"
+
 @implementation DXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [[SyncController sharedInstance] syncEntries];
     
     DXListViewController *viewContorller = [DXListViewController new];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:viewContorller];
