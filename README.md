@@ -2,7 +2,7 @@
 
 Day-X is a simple journaling iOS app that we use to demonstrate many concepts we cover in class.
 
-## Lesson 5 - Storyboard, list view, detail view
+## Lesson 6 - Storyboard, list view, detail view
 
 In this section we will add a ```ListViewController``` that will display our list of journal entries. We will add a ```DetailViewController``` that will display and edit journal entries. We will set up our Storyboard scenes and wire them up to each of the views. 
 
@@ -67,7 +67,7 @@ Run the app. Your keyboard should be dismissed when you hit Enter.
 
 Run the app. You should now be able to clear the TextField and TextView when you tap the clear button.
 
-## Lesson 6 - Model Objects and Model Object Controllers
+## Lesson 7 - Model Objects and Model Object Controllers
 
 In this section we will add an ```Entry``` class. We will add an ```EntryController``` class that will help us manage our Entries in one location. We will set our TableView to display Entries instead of static data, and we will set up our ```DetailViewController``` to update with the Entry it displays.
 
@@ -153,7 +153,7 @@ When we add a new entry, we want to create a new one. When we edit an entry, we 
 
 - In the ```saveButtonTapped:``` method, add a check to see if self.entry exists. If so, update the entry's properties in place. If not, create a new entry.
 
-## Lesson 7 - NSDictionaries and NSUserDefaults
+## Lesson 8 - NSDictionaries and NSUserDefaults
 
 In this section we will add data persistence to our app by adding functionality to our EntryController class. We will convert our Entry model objects into dictionaries, save them to NSUserDefaults, and add the ability to retrieve those dictionaries from NSUserDefaults and convert them back into Entry model objects for our app to use.
 
@@ -197,7 +197,7 @@ We add this extra method to provide a better public name than 'saveToPersistentS
 
 Run the app. You should now be able to create new entries, edit existing entries, and load saved entries when you relaunch the app.
 
-## Lesson 16 - Core Data
+## Lesson - Core Data
 
 In this section we will replace NSUserDefaults for data persistence with Core Data. Because of the way we have written the app, most of the changes we make will be in the ```EntryController``` class. We will add the Core Data framework to the project, add a Core Data Model file, replace our Entry NSObject subclass with a NSManagedObject subclass, and update our ```EntryController``` to save to and load from Core Data's persistent store.
 
