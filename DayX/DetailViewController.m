@@ -19,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.titleTextField.text = self.entry.title;
+    self.bodyTextView.text = self.entry.entryText;
+}
+
+- (IBAction)titleChanged:(id)sender {
+    self.entry.title = self.titleTextField.text;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,4 +11,6 @@
 
 @interface ListTableViewDataSource : NSObject <UITableViewDataSource>
 
+@property (strong) NSArray *entries;
+
 @end
